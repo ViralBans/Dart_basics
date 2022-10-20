@@ -47,4 +47,13 @@ class DelimetersCalculator {
     return 'состоит из простых множителей - ${_result.toString()}';
   }
 
+  // Функция для преобразования числа из десятичной системы в двоичную
+  String transferDown(int code) {
+    return code.toRadixString(2);
+  }
+
+  // Функция для преобразования числа из двоичной системы в десятичную
+  int transferUp(String code) {
+    return int.parse(code, radix: 2);
+  }
 }
