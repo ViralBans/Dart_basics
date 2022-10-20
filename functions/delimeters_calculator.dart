@@ -1,16 +1,50 @@
 class DelimetersCalculator {
+  // Функция для определения НОД
+  int gcd(int a, int b) => a.gcd(b);
 
-  // Функция определения НОД
-  int gcd(int a, int b) {
-    var _temp = a;
+  // Функция для определения НОК
+  int lcm(int a, int b) => (a * b) ~/ gcd(a, b);
 
-    if (a < b) {
-      a = b;
-      b = _temp;
+  // Проверка числа
+  bool isSimple(int a) {
+    List<int> numbers = [];
+
+    for (var i = 1; i <= a; i++) {
+      if (a % i == 0) {
+        numbers.add(i);
+      }
     }
-    return a.gcd(b);
+
+    return numbers.length == 2;
   }
 
-  // Функция определения НОК
-  int lcm(int a, int b) => (a * b) ~/ gcd(a, b);
+  // Функция для разбиения числа на простые множители
+  primeNumber(int a) {
+
+    if (isSimple(a)) {
+      return '- простое число';
+    }
+
+    a = a.abs();
+    var div = 2;
+    List<int> _result = [];
+
+    while (a > 1) {
+      while (a % div == 0) {
+
+        if (isSimple(div)) {
+          _result.add(div);
+          a = a ~/ div;
+        }
+      }
+
+      if (div == 2)
+        div++;
+      else
+        div += 2;
+    }
+
+    return 'состоит из простых множителей - ${_result.toString()}';
+  }
+
 }
