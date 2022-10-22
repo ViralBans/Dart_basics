@@ -1,3 +1,5 @@
+import 'dart:core';
+
 class CustomFunctions {
 
   // Функция для подсчета повторений в коллекции
