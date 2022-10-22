@@ -1,4 +1,5 @@
 class DelimetersCalculator {
+
   // Функция для определения НОД
   int gcd(int a, int b) => a.gcd(b);
 
